@@ -184,7 +184,63 @@ Don't forget to rename this file!
 不要忘记对这个文件重命名哟！
 
 
+## 开机启动脚本
+### 创建服务
+```
+sudo vim /etc/systemd/system/rc-local.service
+```
+写入：
+```
+[Unit]
+Description="/etc/rc.local Compatibility" 
 
+[Service]
+Type=oneshot
+ExecStart=/etc/rc.local start
+TimeoutSec=0
+StandardInput=tty
+RemainAfterExit=yes
+SysVStartPriority=99
+
+[Install]
+WantedBy=multi-user.target
+```
+### 创建脚本执行程序
+
+```
+sudo vim /etc/rc.local
+```
+写入：
+```
+#!/bin/sh
+# /etc/rc.local
+if test -d /etc/rc.local.d; then
+    for rcscript in /etc/rc.local.d/*.sh; do
+        test -r "${rcscript}" && sh ${rcscript}
+    done
+    unset rcscript
+fi
+```
+添加执行权限：
+```
+sudo chmod a+x /etc/rc.local
+```
+### 创建脚本目录
+```
+sudo mkdir /etc/rc.local.d
+```
+
+所有需要开机执行的脚本放在这个文件夹下就可以了
+
+### 启动服务
+下次开机启动
+```
+systemctl enable rc-local.service
+```
+本次启动
+```
+systemctl start rc-local.service
+```
 
 
 
