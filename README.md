@@ -77,9 +77,7 @@ sudo pacman -Sy && sudo pacman -S archlinuxcn-keyring
 ## Chinse Pinyin
 
 ```bash
-sudo pacman -S fcitx-im
-sudo pacman -S fcitx-configtool
-sudo pacman -S fcitx-googlepinyin
+sudo pacman -S fcitx5-im fcitx5-configtool fcitx5-chinese-addons fcitx5-qt fcitx5-gtk
 ```
 
 ```bash
@@ -87,9 +85,10 @@ sudo vim ~/.xprofile
 ```
 
 ```bash
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export XMODIFIERS="@im=fcitx5"
+fcitx5 &
 ```
 
 To make pinyin work, you should reboot you computer.
@@ -107,8 +106,8 @@ If you are using a high resolution screen (like a 4K one),  we recomand you use 
 If you use dual system( Windows + Linux)，time sync between these two system is necessary
 双系统用户需要同步双系统时间
 
-Launch your powershell as admin
-以管理员身份启动 powershell
+Launch your powershell as admin in windows
+在windows中以管理员身份启动 powershell
 
 ```
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG/QWORD /f 
@@ -132,16 +131,6 @@ To install Chrome, you should add `google-`
 yay google-chrome
 ```
 
-### WPS
-
-Install WPS office and it's fonts:
-安装 WPS 和字体
-
-```
-yay wps-office
-yay ttf-wps-fonts
-```
-
 ### WeChat
 
 ```
@@ -156,11 +145,23 @@ Install v2ray core first:
 yay v2ray
 ```
 
-We recomand Qv2ray as you GUI for v2ray.(Although it's no longer under maintenance )
+We recomand Qv2ray as you GUI tools for v2ray.(Although it's no longer under maintenance)
 
 Use `which v2ray` to find where the v2ray core lies, usually the pat would be `usr/bin/v2ray`
 
 the resouce director of v2ray would be `usr/shares/v2ray` usually .
+
+### Clash is now a better choice in Linux
+We recommand you to use clash-for-windows(cfw) linux version, cfw was originally built for windows, but now it has macOS and linux distros.
+
+Search `clash for windows` in GitHub then download its linux version.
+
+Extract the tar.gz file to you home directory, we recommand that rename it as clash for convenience.
+Run the file named cfw, you will see the GUI. Go to Profiles tab, paste the link that your V2Ray or SS service providers offerd, then click download.
+
+To auto start your cfw, follow the instruction in Autostart part. 
+
+
 
 ### Utools
 
@@ -215,7 +216,24 @@ Command: gnome-terminal
 Combo: whatever you like, we use `Ctrl + Shift + T`
 
 
-## Autostart Script
+## Autostart 
+### General Settings 通用教程
+
+在 `./.config/autostart` 文件夹下创建一个新的desktop文件，在文件中写入、
+
+
+```
+[Desktop Entry]
+Type=Application
+Name=Clash for Windows
+Comment=Clash for Windows startup script
+Exec=/home/username/clash/cfw  
+StartupNotify=false
+Terminal=false
+X-GNOME-Autostart-enabled=true
+
+
+
 ### Create Service 创建服务
 ```
 sudo vim /etc/systemd/system/rc-local.service
