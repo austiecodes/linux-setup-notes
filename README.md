@@ -151,7 +151,7 @@ Use `which v2ray` to find where the v2ray core lies, usually the pat would be `u
 
 the resouce director of v2ray would be `usr/shares/v2ray` usually .
 
-### Clash is now a better choice in Linux
+### Clash is now a better choice on Linux
 We recommand you to use clash-for-windows(cfw) linux version, cfw was originally built for windows, but now it has macOS and linux distros.
 
 Search `clash for windows` in GitHub then download its linux version.
@@ -185,7 +185,7 @@ Name=utools
 
 Comment=utools
 
-Exec=utools
+Exec=/usr/bin/utools
 
 Type=Application
 
@@ -197,13 +197,8 @@ X-GNOME-Autostart-enabled=true
 Don't forget to rename this file!
 不要忘记对这个文件重命名哟！
 
-### Filezilla
-
-```
-yay filezilla
-```
-
-
+其他程序的开机启动同样可以遵循上述步骤
+Follow the steps above you can set other apps to autostart.
 
 ## Quick Launch Your Terminal
 
@@ -211,28 +206,11 @@ Setting->Keyboard->Shortcut->Custom
 设置->键盘->键盘快捷键->自定义快捷键
 
 
-
 Command: gnome-terminal
 Combo: whatever you like, we use `Ctrl + Shift + T`
 
 
-## Autostart 
-### General Settings 通用教程
-
-在 `./.config/autostart` 文件夹下创建一个新的desktop文件，在文件中写入、
-
-
-```
-[Desktop Entry]
-Type=Application
-Name=Clash for Windows
-Comment=Clash for Windows startup script
-Exec=/home/username/clash/cfw  
-StartupNotify=false
-Terminal=false
-X-GNOME-Autostart-enabled=true
-
-
+## Autostart A Service
 
 ### Create Service 创建服务
 ```
