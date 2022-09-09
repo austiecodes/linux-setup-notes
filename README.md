@@ -74,10 +74,17 @@ sudo pacman -Sy && sudo pacman -S archlinuxcn-keyring
    yay -Syyu
 ```
 
-## Chinse Pinyin
+## Chinses Pinyin
 
 ```bash
-sudo pacman -S fcitx5-im fcitx5-configtool fcitx5-chinese-addons fcitx5-qt fcitx5-gtk
+sudo pacman -S fcitx5-im fcitx5-configtool fcitx5-chinese-addons fcitx5-qt fcitx5-gtk 
+```
+
+To autostart fcitx5, we recomand using fcitx5-autostart
+
+
+```bash
+yay fcitx5-autostart
 ```
 
 ```bash
@@ -98,6 +105,36 @@ To make pinyin work, you should reboot you computer.
 
 If you are using a high resolution screen (like a 4K one),  we recomand you use tweak to upscale your font size other than upscale resolution. Press the win button, and search tweak, open it, you will find what to do next.
 如果你使用高分辨率屏幕，我们推荐你增加字体大小而不是整体缩放，在抽屉里直接搜索 `tweak` 可以找到此款优化工具。
+
+## zsh
+
+Use pacman or yay to install zsh.
+
+zsh-syntax-highlighting and zsh-autosuggestion
+
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+
+Add the plugin to the list of plugins for Oh My Zsh to load (inside ~/.zshrc):
+```bash
+vim ./.zshrc
+```
+
+plugins=( 
+    # other plugins...
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+)
+
+```bash
+source ./.zshrc
+```
+
+
 
 
 
@@ -159,7 +196,7 @@ Search `clash for windows` in GitHub then download its linux version.
 Extract the tar.gz file to you home directory, we recommand that rename it as clash for convenience.
 Run the file named cfw, you will see the GUI. Go to Profiles tab, paste the link that your V2Ray or SS service providers offerd, then click download.
 
-To auto start your cfw, follow the instruction in Autostart part. 
+To autostart CFW, select start with linux option.
 
 
 
