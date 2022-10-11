@@ -3,6 +3,7 @@
 ## Basic Adjustments
 
 ### Changing the default GNOME session via configuration file
+If you feel laggy to use Fedora, try change window session from wayland to x11
 
 As an alternative, this change can be made by editing a configuration file `/etc/gdm/custom.conf`.
 
@@ -29,13 +30,12 @@ As an alternative, this change can be made by editing a configuration file `/etc
 ```shell
 sudo dnf install gnome-tweaks
 ```
-
-Google Gnome Extension, add gnome-extension for Firefox/Chrome
+https://extensions.gnome.org
+Install Gnome Broswer Extension for Firefox or Chrome.
 
 Search:
 
 "appindicator"  for indicating extensions in tray
-
 "kimpannel" for indicating fcitx5 logo in tray
 
 
@@ -62,17 +62,7 @@ Search:
 
 
 
-
-
-
-
 ## Software
-
-### Basic Ones
-
-```shell
-sudo dnf install nvim(or vim)
-```
 
 ### VSCode
 
@@ -108,9 +98,11 @@ Install Fcitx5
 ```shell
 sudo dnf install fcitx5
 sudo dnf install fcitx5-configtool
-sudo dnf install fcitx5-autostart
 sudo dnf install fcitx5-chinese-addons
 sudo dnf install fcitx5-rime
+
+# auto-start script
+sudo dnf install fcitx5-autostart
 ```
 
 

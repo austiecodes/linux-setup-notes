@@ -1,3 +1,10 @@
+Fractional Scaling
 
-分数缩放，中文输入法都可以在设置里面找到。
-多数App都可以通过商店安装。
+## Gnome-extensions
+
+1. Blur My Shell
+https://extensions.gnome.org/extension/3193/blur-my-shell/
+1. Dash to Dock for COSMIC
+https://extensions.gnome.org/extension/5004/dash-to-dock-for-cosmic/
+
+
