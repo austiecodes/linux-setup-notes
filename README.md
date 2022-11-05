@@ -149,4 +149,13 @@ If you are not using clash, replace `7890` with the port your proxy tool are usi
 git config --global http.proxy 'socks5://127.0.0.1:1081'
 git config --global https.proxy 'socks5://127.0.0.1:1081'
 ```
+## goldendict
+Taking English-SimplifiedChinese translation case as exmaple here.
+
+Add online dictionart like this:
+`https://dictionary.cambridge.org/dictionary/english-chinese-simplified/%GDWORD%`
+
+Make sure you don't use GoldenDict as UserAgent when access online dictionary.
+
+
 
