@@ -157,5 +157,7 @@ Add online dictionart like this:
 
 Make sure you don't use GoldenDict as UserAgent when access online dictionary.
 
+To add an offline dictionary, we recommenda to make a directory under `./.goldendict` called `dicts`. A ch-en dictinary is in `files` folder already, you can use that. 
+
 
 
