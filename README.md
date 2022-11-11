@@ -109,10 +109,39 @@ export https_proxy=http://127.0.0.1:7890;export http_proxy=http://127.0.0.1:7890
 ```
 
 ### WeChat
-you can use scripts to install deepin-wine-wechat. Details in this repo:
+（Method 1, Recommend) Details in this repo:
 https://github.com/zq1997/deepin-wine
+Or you can follow the steps blew:
 
-Or you can use wine to install wechat.exe
+```
+wget -O- https://deepin-wine.i-m.dev/setup.sh | sh
+sudo apt-get install com.qq.weixin.deepin
+
+## After installation, you need to upscale your wechat inorder to fit your 2k or 4k screen
+cd /opt/apps/com.qq.weixin.deepin/entries/applications
+sudo vim com.qq.weixin.deepin.desktop      
+
+```
+
+ADD `env DEEPIN_WINE_SCALE=2` 
+
+```
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+X-Created-By=Deepin WINE Team
+Categories=chat;
+Icon=com.qq.weixin.deepin
+Exec=env DEEPIN_WINE_SCALE=2 "/opt/apps/com.qq.weixin.deepin/files/run.sh" -u %u
+Name=WeChat
+Name[zh_CN]=微信
+Comment=Tencent WeChat Client on Deepin Wine
+StartupWMClass=WeChat.exe
+MimeType=
+```
+
+
+(Method 2) Or you can use wine to install wechat.exe
 ```
 # Install some dependencies
 winetricks fakechinese corefonts gdiplus riched20 riched30
